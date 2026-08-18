@@ -4,6 +4,9 @@ tags:
   - SSH
 ---
 
+![openssh.webp](../assets/images/openssh.webp)
+
+
 # SSH
 
 ### Installing SSH is very straight forward using OpenSSH.
@@ -70,10 +73,11 @@ sudo chown -R beardnetwork:beardnetwork /home/beardnetwork
 sudo chmod 700 /home/beardnetwork
 ```
 
+
 !!! note "Replace Values"
-
+<div class="grid cards" markdown>
 Replace `beardnetwork` with the user name
-
+</div>
 
 ## Remote Access of the network
 

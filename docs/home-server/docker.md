@@ -4,6 +4,9 @@ tags:
   - Docker
 ---
 
+
+![docker.png](../assets/images/docker.png)
+
 # Docker
 
  Docker is very useful, particular for self hosting applications in their own environments, i.e. "containerizing". This is also highly recommended for an application like Immich, which is a phenomal Google Photos replacement.
