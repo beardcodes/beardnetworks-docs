@@ -5,16 +5,24 @@ theme:
     admonition:
       bug: fontawesome/solid/robot
   name: material
-  
+
+  font:
+    text: Fira Code
+    code: Fira Code
+
   palette: 
     # Palette toggle for light mode
     - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -32,12 +40,12 @@ theme:
     - search.highlight
     - content.code.copy
     - navigation.footer
+    - navigation.indexes
+    - content.tabs.link
+    - search.share
 
 plugins:
   - search
-  - tags:
-      tags_file: tags.md
-  - blog
 
 markdown_extensions:
 
@@ -52,39 +60,74 @@ markdown_extensions:
   - md_in_html
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
-  - attr_list
-  - md_in_html
 
 
 nav:
   - Home: index.md
-  - Home Server: 
-    - SSH: home-server/ssh.md
-    - Docker: home-server/docker.md
-    - AdGuard: home-server/adguard.md
-    - Mapped Network Drive: home-server/mapped-network-drive.md
-    - Diun: home-server/diun.md
-    - Remote Desktop: home-server/remote-desktop.md
-  - Hack The Box:
-    - Editorial: hack-the-box/editorial.md
-    - Boardlight: hack-the-box/boardlight.md
-  # - About:
-  #   - About Me: about/about.md
-  #   - Childhood: about/childhood.md
-  - Tags: tags.md
-  - Blog:
-    - blog/index.md
+  - Host Setup:
+    - SSH: host-setup/ssh.md
+    - Docker: host-setup/docker.md
+    - Mapped Network Drive: host-setup/mapped-network-drive.md
+    - Remote Desktop: host-setup/remote-desktop.md
+  - Proxmox:
+    - Proxmox VE: proxmox/proxmox-ve-install.md
+  - Docker Containers:
+    - Management:
+      - Portainer: docker-containers/portainer.md
+      - Dockhand: docker-containers/dockhand.md
+      - Nexterm: docker-containers/nexterm.md
+    - Networking:
+      - Traefik: docker-containers/traefik.md
+      - Nginx Proxy Manager: docker-containers/nginx-proxy-manager.md
+      - AdGuard: docker-containers/adguard.md
+      - wg-easy: docker-containers/wg-easy.md
+      - CrowdSec: docker-containers/crowdsec.md
+      - RustDesk: docker-containers/rustdesk.md
+    - Authentication:
+      - Tinyauth: docker-containers/tinyauth.md
+      - Vaultwarden: docker-containers/vaultwarden.md
+    - Media Stack:
+      - Overview: docker-containers/media-stack.md
+      - Prowlarr: docker-containers/prowlarr.md
+      - Sonarr: docker-containers/sonarr.md
+      - Radarr: docker-containers/radarr.md
+      - Bazarr: docker-containers/bazarr.md
+      - qBittorrent: docker-containers/qbittorrent.md
+      - SABnzbd: docker-containers/sabnzbd.md
+      - Seerr: docker-containers/seerr.md
+    - Monitoring:
+      - Uptime Kuma: docker-containers/uptime-kuma.md
+      - Diun: docker-containers/diun.md
+      - Prometheus: docker-containers/prometheus.md
+      - Grafana: docker-containers/grafana.md
+      - What's Up Docker: docker-containers/whats-up-docker.md
+    - Dashboards:
+      - Glance: docker-containers/glance.md
+      - Homepage: docker-containers/homepage.md
+    - Utilities:
+      - Karakeep: docker-containers/karakeep.md
+      - Change Detection: docker-containers/changedetection.md
+      - Mealie: docker-containers/mealie.md
+      - HortusFox: docker-containers/hortusfox.md
+      - BentoPDF: docker-containers/bentopdf.md
+      - IT-Tools: docker-containers/it-tools.md
+      - Excalidraw: docker-containers/excalidraw.md
+      - Papra: docker-containers/papra.md
+      - Firefly III: docker-containers/firefly-iii.md
+  - Kubernetes:
+    - Set up K3s: kubernetes/k3s-installation.md
+    - Helm: kubernetes/helm-install.md
 
 
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - assets/js/buymecoffee.js
+
 
 copyright: Copyright &copy; 2024 Beardnetworks
 extra:
   generator: false
-
-extra:
   consent:
     title: Cookie consent
     description: >- 
