@@ -1,34 +1,92 @@
 /* ==========================================================================
-   beardnetworks — terminal lab theme
-   Neutral stone scale + amber phosphor accent, hairline surfaces.
+   beardnetworks — a notebook, not a product page
+   Literata for prose, Fira Code for anything the machine says.
+   Ink on paper, violet only where something is clickable.
    ========================================================================== */
 
 :root {
-  --bn-radius: 0.5rem;
+  --bn-radius: 0.25rem;
   --bn-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+  --bn-serif: "Literata", Georgia, serif;
 }
 
-/* --- Fira Code everywhere -------------------------------------------------
-   The whole site is set in one monospaced face, so hierarchy comes from
-   weight, size and spacing rather than from contrasting families.
-   -------------------------------------------------------------------------- */
+/* --- light ---------------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #16181d;
+  --md-primary-fg-color--light: #3f434c;
+  --md-primary-fg-color--dark: #0a0b0e;
+  --md-primary-bg-color: #fcfcfa;
+  --md-primary-bg-color--light: #e4e3dc;
 
-body,
-input,
-.md-typeset {
-  font-feature-settings: "liga" 0, "calt" 0;
-  font-variant-ligatures: none;
+  --md-accent-fg-color: #4b3fa8;
+  --md-accent-fg-color--transparent: #4b3fa814;
+  --md-accent-bg-color: #ffffff;
+
+  --md-default-bg-color: #fcfcfa;
+  --md-default-fg-color: #16181d;
+  --md-default-fg-color--light: #4b5058;
+  --md-default-fg-color--lighter: #9aa0a8;
+  --md-typeset-a-color: #4b3fa8;
+  --md-code-bg-color: #f2f1ec;
+  --md-code-fg-color: #24262c;
+
+  --bn-surface: #f6f5f0;
+  --bn-rule: #e4e3dc;
+  --bn-rule-strong: #cfcec5;
+  --bn-muted: #5a6068;
 }
 
+/* --- dark ----------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 232;
+
+  --md-primary-fg-color: #14151a;
+  --md-primary-fg-color--light: #272a31;
+  --md-primary-fg-color--dark: #0b0c0f;
+  --md-primary-bg-color: #e8e7e2;
+  --md-primary-bg-color--light: #9aa0a8;
+
+  --md-accent-fg-color: #b3a8f7;
+  --md-accent-fg-color--transparent: #b3a8f71f;
+  --md-accent-bg-color: #14151a;
+
+  --md-default-bg-color: #14151a;
+  --md-default-fg-color: #e8e7e2;
+  --md-default-fg-color--light: #c3c5ca;
+  --md-default-fg-color--lighter: #767d87;
+  --md-typeset-a-color: #b3a8f7;
+  --md-code-bg-color: #1c1e25;
+  --md-code-fg-color: #e8e7e2;
+
+  --bn-surface: #191b21;
+  --bn-rule: #272a31;
+  --bn-rule-strong: #3a3e47;
+  --bn-muted: #9aa0a8;
+}
+
+/* --- reading -------------------------------------------------------------- */
+
 .md-typeset {
-  font-size: 0.74rem;
-  line-height: 1.75;
-  letter-spacing: -0.012em;
+  font-family: var(--bn-serif);
+  font-size: 0.8rem;
+  line-height: 1.72;
+  letter-spacing: 0;
 }
 
 .md-typeset p,
 .md-typeset li {
-  max-width: 46rem;
+  max-width: 36rem;
+}
+
+.md-typeset a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--md-typeset-a-color) 40%, transparent);
+}
+
+.md-typeset a:hover {
+  text-decoration-color: currentcolor;
 }
 
 /* Ligatures belong in code, where they were designed to be read. */
@@ -36,69 +94,48 @@ input,
 .md-typeset pre,
 .md-typeset kbd {
   font-feature-settings: "liga" 1, "calt" 1;
-  font-variant-ligatures: contextual;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
-/* --- light ---------------------------------------------------------------- */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #1c1917;
-  --md-primary-fg-color--light: #44403c;
-  --md-primary-fg-color--dark: #0c0a09;
-  --md-primary-bg-color: #fafaf9;
-  --md-primary-bg-color--light: #e7e5e4;
+/* --- headings ------------------------------------------------------------- */
 
-  --md-accent-fg-color: #b45309;
-  --md-accent-fg-color--transparent: #b453091a;
-  --md-accent-bg-color: #ffffff;
-
-  --md-default-bg-color: #ffffff;
-  --md-default-fg-color: #1c1917;
-  --md-default-fg-color--light: #57534e;
-  --md-default-fg-color--lighter: #a8a29e;
-  --md-typeset-a-color: #b45309;
-  --md-code-bg-color: #f5f5f4;
-  --md-code-fg-color: #292524;
-
-  --bn-surface: #fafaf9;
-  --bn-border: #e7e5e4;
-  --bn-border-strong: #d6d3d1;
-  --bn-muted: #78716c;
-  --bn-term-bg: #1c1917;
-  --bn-term-fg: #e7e5e4;
+.md-typeset h1 {
+  font-family: var(--bn-serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.8rem;
 }
 
-/* --- dark ----------------------------------------------------------------- */
-[data-md-color-scheme="slate"] {
-  --md-hue: 30;
-
-  --md-primary-fg-color: #0c0a09;
-  --md-primary-fg-color--light: #1c1917;
-  --md-primary-fg-color--dark: #000000;
-  --md-primary-bg-color: #e7e5e4;
-  --md-primary-bg-color--light: #a8a29e;
-
-  --md-accent-fg-color: #f0b429;
-  --md-accent-fg-color--transparent: #f0b4291f;
-  --md-accent-bg-color: #0c0a09;
-
-  --md-default-bg-color: #0c0a09;
-  --md-default-fg-color: #e7e5e4;
-  --md-default-fg-color--light: #d6d3d1;
-  --md-default-fg-color--lighter: #78716c;
-  --md-typeset-a-color: #f0b429;
-  --md-code-bg-color: #16130f;
-  --md-code-fg-color: #e7e5e4;
-
-  --bn-surface: #12100e;
-  --bn-border: #292524;
-  --bn-border-strong: #3f3a35;
-  --bn-muted: #a8a29e;
-  --bn-term-bg: #16130f;
-  --bn-term-fg: #e7e5e4;
+.md-typeset h2 {
+  font-family: var(--bn-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.015em;
+  padding-top: 0.7rem;
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--bn-rule);
 }
 
-/* --- chrome --------------------------------------------------------------- */
+.md-typeset h3 {
+  font-family: var(--bn-serif);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: -0.01em;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset h4 {
+  font-family: var(--bn-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--bn-muted);
+}
+
+/* --- chrome: as little of it as possible ---------------------------------- */
 
 .md-header,
 .md-tabs {
@@ -106,20 +143,33 @@ input,
 }
 
 .md-header {
-  border-bottom: 1px solid var(--bn-border);
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  border-bottom: 1px solid var(--bn-rule);
 }
 
 .md-header__title {
-  font-family: var(--bn-mono);
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-family: var(--bn-serif);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.md-search__input {
+  font-family: var(--bn-serif);
+}
+
+.md-tabs {
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  border-bottom: 1px solid var(--bn-rule);
 }
 
 .md-tabs__link {
   font-family: var(--bn-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-  opacity: 0.72;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  opacity: 0.6;
 }
 
 .md-tabs__link--active,
@@ -127,81 +177,61 @@ input,
   opacity: 1;
 }
 
-.md-nav__title,
-.md-nav__link {
-  font-size: 0.72rem;
+.md-nav {
+  font-size: 0.68rem;
 }
 
-.md-nav--secondary .md-nav__title {
+.md-nav__title {
   font-family: var(--bn-mono);
-  letter-spacing: 0.03em;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
   text-transform: lowercase;
+  color: var(--bn-muted);
 }
 
-.md-search__form {
-  border-radius: var(--bn-radius);
+.md-nav__link {
+  font-family: var(--bn-serif);
 }
 
 .md-footer,
 .md-footer-meta {
   background: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
-  border-top: 1px solid var(--bn-border);
+  border-top: 1px solid var(--bn-rule);
 }
 
 .md-footer__link {
-  opacity: 0.8;
+  opacity: 0.82;
 }
 
-.md-copyright,
-.md-footer-meta .md-social {
+.md-footer__title,
+.md-footer__direction {
+  font-family: var(--bn-serif);
+}
+
+.md-copyright {
+  font-family: var(--bn-mono);
+  font-size: 0.58rem;
   color: var(--bn-muted);
 }
 
-/* --- typography ----------------------------------------------------------- */
-
-.md-typeset h1 {
-  font-family: var(--bn-mono);
-  font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: -0.035em;
-  line-height: 1.2;
-  color: var(--md-default-fg-color);
+.md-social__link {
+  color: var(--bn-muted);
+  transition: color 120ms;
 }
 
-.md-typeset h2 {
-  font-family: var(--bn-mono);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  padding-top: 0.6rem;
-  margin-top: 2.2rem;
-  border-top: 1px solid var(--bn-border);
+.md-social__link:hover {
+  color: var(--md-accent-fg-color);
 }
 
-.md-typeset h3 {
-  font-family: var(--bn-mono);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--md-default-fg-color);
+.md-social__link svg {
+  max-height: 0.8rem;
 }
 
-.md-typeset h4 {
-  font-family: var(--bn-mono);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-}
-
-.md-typeset code {
-  border-radius: 0.25rem;
-}
-
-.md-typeset pre > code,
-.md-typeset .highlight > pre {
-  border-radius: var(--bn-radius);
-}
+/* --- content blocks ------------------------------------------------------- */
 
 .md-typeset .highlight {
-  border: 1px solid var(--bn-border);
+  border: 1px solid var(--bn-rule);
   border-radius: var(--bn-radius);
   overflow: hidden;
 }
@@ -210,232 +240,217 @@ input,
   margin: 0;
 }
 
+.md-typeset pre > code {
+  font-size: 0.66rem;
+  line-height: 1.6;
+}
+
 .md-typeset blockquote {
-  border-left: 2px solid var(--md-accent-fg-color);
+  border-left: 2px solid var(--bn-rule-strong);
   color: var(--bn-muted);
+  font-style: italic;
 }
 
 .md-typeset table:not([class]) {
-  border: 1px solid var(--bn-border);
+  border: 1px solid var(--bn-rule);
   border-radius: var(--bn-radius);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
 }
 
 .md-typeset table:not([class]) th {
   font-family: var(--bn-mono);
   font-weight: 500;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
   background: var(--bn-surface);
 }
 
 .md-typeset .admonition,
 .md-typeset details {
-  border: 1px solid var(--bn-border);
-  border-left-width: 2px;
+  border: 1px solid var(--bn-rule);
+  border-left: 2px solid var(--bn-rule-strong);
   border-radius: var(--bn-radius);
   box-shadow: none;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-family: var(--bn-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.03em;
+  background: var(--bn-surface);
 }
 
 .md-typeset img {
-  border: 1px solid var(--bn-border);
+  border: 1px solid var(--bn-rule);
   border-radius: var(--bn-radius);
 }
 
-/* --- buttons -------------------------------------------------------------- */
+/* --- buttons: text with a box around it, not a call to action ------------- */
 
 .md-typeset .md-button {
   border-radius: var(--bn-radius);
-  border-color: var(--bn-border-strong);
+  border-color: var(--bn-rule-strong);
   font-family: var(--bn-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1.2;
-  padding: 0.45em 0.9em;
-  transition: background-color 120ms, color 120ms, border-color 120ms;
+  padding: 0.5em 0.9em;
+  text-decoration: none;
+  transition: border-color 120ms, color 120ms;
 }
 
-.md-typeset .md-button:not(.md-button--primary) {
-  color: var(--md-default-fg-color);
-}
-
-.md-typeset .md-button:not(.md-button--primary):hover {
-  background: var(--md-accent-fg-color--transparent);
+.md-typeset .md-button:hover {
+  background: transparent;
   border-color: var(--md-accent-fg-color);
   color: var(--md-accent-fg-color);
 }
 
 .md-typeset .md-button--primary {
-  background: var(--md-default-fg-color);
+  background: transparent;
   border-color: var(--md-default-fg-color);
-  color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
 }
 
-.md-typeset .md-button--primary:hover {
-  background: var(--md-accent-fg-color);
-  border-color: var(--md-accent-fg-color);
-  color: var(--md-accent-bg-color);
+/* --- home: masthead ------------------------------------------------------- */
+
+.md-typeset .bn-mast {
+  border-bottom: 1px solid var(--bn-rule);
+  padding-bottom: 1.4rem;
+  margin-bottom: 2rem;
 }
 
-/* --- home: terminal hero -------------------------------------------------- */
-
-.md-typeset .bn-hero {
-  border: 1px solid var(--bn-border);
-  border-radius: var(--bn-radius);
-  background: var(--bn-term-bg);
-  color: var(--bn-term-fg);
-  font-family: var(--bn-mono);
-  padding: 1.1rem 1.2rem 1.3rem;
-  margin: 0 0 1.5rem;
-  overflow-x: auto;
+.md-typeset .bn-mast h1 {
+  font-size: 1.9rem;
+  max-width: 22rem;
+  margin: 0.2rem 0 0.7rem;
 }
 
-.md-typeset .bn-hero p {
-  margin: 0.35rem 0 0;
+.md-typeset .bn-mast p {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 33rem;
 }
 
-.bn-prompt {
+.bn-byline {
   display: block;
-  font-size: 0.7rem;
+  font-family: var(--bn-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
   color: var(--bn-muted);
 }
 
-.bn-prompt b {
-  color: #f0b429;
-  font-weight: 500;
+/* --- home: the stack, bottom up ------------------------------------------
+   The rail label is the layer the thing actually runs on. Read it downward
+   and you have the build order of the lab.
+   -------------------------------------------------------------------------- */
+
+.md-typeset .bn-layer {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0 1.5rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--bn-rule);
+  align-items: start;
 }
 
-.md-typeset .bn-hero h1 {
-  color: var(--bn-term-fg);
-  font-size: 1.5rem;
-  margin: 0.5rem 0 0.3rem;
+.md-typeset .bn-layer:last-of-type {
+  border-bottom: 1px solid var(--bn-rule);
 }
 
-.bn-caret {
-  display: inline-block;
-  width: 0.5em;
-  height: 1em;
-  margin-left: 0.15em;
-  translate: 0 0.12em;
-  background: #f0b429;
-  animation: bn-blink 1.1s steps(1) infinite;
-}
-
-@keyframes bn-blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.bn-lede {
-  font-size: 0.78rem;
-  color: #d6d3d1;
-  max-width: 34rem;
-}
-
-/* --- home: path eyebrows -------------------------------------------------- */
-
-.bn-path {
+.bn-layer__rail {
   font-family: var(--bn-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.04em;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
   color: var(--bn-muted);
+  padding-top: 0.28rem;
+  position: sticky;
+  top: 4rem;
 }
 
-/* --- home: cards ---------------------------------------------------------- */
-
-.md-typeset .grid.cards > ul > li,
-.md-typeset .grid > .card {
-  border: 1px solid var(--bn-border);
-  border-radius: var(--bn-radius);
-  box-shadow: none;
-  padding: 0.9rem 1rem;
-  transition: border-color 140ms, background-color 140ms, transform 140ms;
+.md-typeset .bn-layer h2 {
+  font-size: 0.95rem;
+  border-top: 0;
+  padding-top: 0;
+  margin: 0 0 0.35rem;
 }
 
-.md-typeset .grid.cards > ul > li:hover {
-  border-color: var(--md-accent-fg-color);
-  background: var(--bn-surface);
-  transform: translateY(-2px);
+.md-typeset .bn-layer > div > p {
+  margin: 0 0 0.7rem;
+  color: var(--md-default-fg-color--light);
+  max-width: 33rem;
 }
 
-.md-typeset .grid.cards > ul > li > hr {
-  margin: 0.6rem 0;
-  border-color: var(--bn-border);
-}
-
-.md-typeset .grid.cards > ul > li p:first-child {
-  font-family: var(--bn-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.04em;
-  color: var(--bn-muted);
-  margin-bottom: 0.15rem;
-}
-
-.md-typeset .grid.cards > ul > li p strong {
-  font-family: var(--bn-mono);
-  font-weight: 500;
-}
-
-/* --- home: actions -------------------------------------------------------- */
-
-.home-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 1.25rem 0 1.75rem;
-}
-
-.home-actions .md-button {
+.md-typeset .bn-layer ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
-.home-section-button {
-  margin-top: 0.2rem;
-  margin-bottom: 0;
+.md-typeset .bn-layer li {
+  margin: 0;
+  padding: 0.22rem 0;
+  max-width: 33rem;
+  font-size: 0.76rem;
 }
 
-.md-typeset .bn-connect {
-  border: 1px solid var(--bn-border);
-  border-radius: var(--bn-radius);
-  background: var(--bn-surface);
-  padding: 1rem 1.2rem;
-  font-size: 0.75rem;
+.md-typeset .bn-layer li a {
+  font-weight: 600;
 }
 
-.md-typeset .bn-connect ul {
-  margin-bottom: 0;
+.md-typeset .bn-layer li em {
+  color: var(--bn-muted);
+  font-style: normal;
 }
 
-/* --- motion / a11y -------------------------------------------------------- */
+.md-typeset .bn-colophon {
+  margin-top: 2.5rem;
+  font-size: 0.72rem;
+  color: var(--bn-muted);
+}
+
+.md-typeset .bn-colophon p {
+  max-width: 33rem;
+}
+
+/* --- a11y ----------------------------------------------------------------- */
 
 :focus-visible {
   outline: 2px solid var(--md-accent-fg-color);
   outline-offset: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .bn-caret {
-    animation: none;
-  }
+/* --- narrow --------------------------------------------------------------- */
 
-  .md-typeset .grid.cards > ul > li:hover {
-    transform: none;
+@media screen and (max-width: 59.9375em) {
+  .md-nav--primary .md-nav__title {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
   }
 }
 
 @media screen and (max-width: 44.9375em) {
-  .home-actions {
-    display: grid;
+  .md-typeset .bn-layer {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
-  .home-actions .md-button,
-  .home-section-button {
-    width: 100%;
-    text-align: center;
+  .bn-layer__rail {
+    position: static;
+    padding-top: 0;
   }
 
-  .md-typeset .bn-hero h1 {
-    font-size: 1.2rem;
+  .md-typeset .bn-mast h1 {
+    font-size: 1.4rem;
   }
+}
+
+/* md_in_html wraps the rail text in a paragraph */
+.md-typeset .bn-layer__rail p {
+  margin: 0;
+  color: inherit;
 }
