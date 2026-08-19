@@ -1,13 +1,14 @@
 site_name: beardnetworks Docs
 
 theme:
+  name: material
   icon:
+    logo: material/nas
     admonition:
       bug: fontawesome/solid/robot
-  name: material
 
   font:
-    text: Fira Code
+    text: Literata
     code: Fira Code
 
   palette: 
@@ -56,6 +57,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.keys
   - attr_list
   - md_in_html
   - admonition
@@ -71,6 +73,7 @@ nav:
     - Remote Desktop: host-setup/remote-desktop.md
   - Proxmox:
     - Proxmox VE: proxmox/proxmox-ve-install.md
+    - Windows & Debian VMs: proxmox/windows-debian-vms.md
   - Docker Containers:
     - Management:
       - Portainer: docker-containers/portainer.md
@@ -117,17 +120,22 @@ nav:
   - Kubernetes:
     - Set up K3s: kubernetes/k3s-installation.md
     - Helm: kubernetes/helm-install.md
+    - cert-manager: kubernetes/cert-manager.md
 
 
 extra_css:
   - stylesheets/extra.css
-extra_javascript:
-  - assets/js/buymecoffee.js
 
-
-copyright: Copyright &copy; 2024 Beardnetworks
+copyright: Copyright &copy; 2026 Beardnetworks
 extra:
   generator: false
+  social:
+    - icon: simple/github
+      link: https://github.com/beardcodes
+      name: beardcodes on GitHub
+    - icon: simple/buymeacoffee
+      link: https://buymeacoffee.com/beardnetwork
+      name: Buy me a coffee
   consent:
     title: Cookie consent
     description: >- 

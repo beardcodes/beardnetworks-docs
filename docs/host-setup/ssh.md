@@ -65,9 +65,8 @@ sudo chmod 700 /home/beardnetwork
 ```
 
 !!! note "Replace Values"
-<div class="grid cards" markdown>
-Replace `beardnetwork` with the user name
-</div>
+
+    Replace `beardnetwork` with your own user name.
 
 ## Remote Access of the network
 
