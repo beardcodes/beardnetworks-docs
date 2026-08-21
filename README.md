@@ -45,8 +45,8 @@ All website content is written in Markdown inside the `docs/` directory.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/beardcodes/mkdocs.git
-cd mkdocs
+git clone https://github.com/beardcodes/beardnetworks-docs.git
+cd beardnetworks-docs
 ```
 
 ### 2. Create a virtual environment
