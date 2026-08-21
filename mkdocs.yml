@@ -1,4 +1,6 @@
 site_name: beardnetworks Docs
+repo_url: https://github.com/beardcodes/beardnetworks-docs
+repo_name: beardcodes/beardnetworks-docs
 
 theme:
   name: material
@@ -7,26 +9,33 @@ theme:
     admonition:
       bug: fontawesome/solid/robot
 
-  font:
-    text: Literata
-    code: Fira Code
-
-  palette: 
-    # Palette toggle for light mode
-    - scheme: default
-      primary: custom
-      accent: custom
+  # Mirrors zensical.org: system -> light -> dark, indigo primary,
+  # orange accent on the dark scheme only.
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-7 
+        icon: lucide/sun-moon
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: lucide/sun
         name: Switch to dark mode
 
-    # Palette toggle for dark mode
-    - scheme: slate
-      primary: custom
-      accent: custom
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: orange
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+        icon: lucide/moon-star
+        name: Switch to system preference
+
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -126,13 +135,15 @@ nav:
 extra_css:
   - stylesheets/extra.css
 
-copyright: Copyright &copy; 2026 Beardnetworks
+copyright: Copyright &copy; 2024&ndash;2026 Beardnetworks
 extra:
-  generator: false
   social:
     - icon: simple/github
       link: https://github.com/beardcodes
       name: beardcodes on GitHub
+    - icon: simple/discord
+      link: https://discord.gg/hASCJfW4n
+      name: beardnetworks on Discord
     - icon: simple/buymeacoffee
       link: https://buymeacoffee.com/beardnetwork
       name: Buy me a coffee

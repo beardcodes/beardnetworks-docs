@@ -1,320 +1,21 @@
 /* ==========================================================================
-   beardnetworks — a notebook, not a product page
-   Literata for prose, Fira Code for anything the machine says.
-   Ink on paper, violet only where something is clickable.
+   beardnetworks — homepage layout only.
+
+   Everything visual (palette, fonts, chrome) comes from Zensical's stock
+   "modern" variant. The rules below exist purely because docs/index.md is
+   built on this grid: the rail label names the layer a thing runs on, and
+   reading the rails downward gives you the build order of the lab.
+
+   Colours here are derived from Material's own tokens, not hardcoded, so
+   they follow the theme in both light and dark.
    ========================================================================== */
 
 :root {
-  --bn-radius: 0.25rem;
-  --bn-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
-  --bn-serif: "Literata", Georgia, serif;
+  --bn-rule: var(--md-default-fg-color--lightest);
+  --bn-muted: var(--md-default-fg-color--light);
 }
 
-/* --- light ---------------------------------------------------------------- */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #16181d;
-  --md-primary-fg-color--light: #3f434c;
-  --md-primary-fg-color--dark: #0a0b0e;
-  --md-primary-bg-color: #fcfcfa;
-  --md-primary-bg-color--light: #e4e3dc;
-
-  --md-accent-fg-color: #4b3fa8;
-  --md-accent-fg-color--transparent: #4b3fa814;
-  --md-accent-bg-color: #ffffff;
-
-  --md-default-bg-color: #fcfcfa;
-  --md-default-fg-color: #16181d;
-  --md-default-fg-color--light: #4b5058;
-  --md-default-fg-color--lighter: #9aa0a8;
-  --md-typeset-a-color: #4b3fa8;
-  --md-code-bg-color: #f2f1ec;
-  --md-code-fg-color: #24262c;
-
-  --bn-surface: #f6f5f0;
-  --bn-rule: #e4e3dc;
-  --bn-rule-strong: #cfcec5;
-  --bn-muted: #5a6068;
-}
-
-/* --- dark ----------------------------------------------------------------- */
-[data-md-color-scheme="slate"] {
-  --md-hue: 232;
-
-  --md-primary-fg-color: #14151a;
-  --md-primary-fg-color--light: #272a31;
-  --md-primary-fg-color--dark: #0b0c0f;
-  --md-primary-bg-color: #e8e7e2;
-  --md-primary-bg-color--light: #9aa0a8;
-
-  --md-accent-fg-color: #b3a8f7;
-  --md-accent-fg-color--transparent: #b3a8f71f;
-  --md-accent-bg-color: #14151a;
-
-  --md-default-bg-color: #14151a;
-  --md-default-fg-color: #e8e7e2;
-  --md-default-fg-color--light: #c3c5ca;
-  --md-default-fg-color--lighter: #767d87;
-  --md-typeset-a-color: #b3a8f7;
-  --md-code-bg-color: #1c1e25;
-  --md-code-fg-color: #e8e7e2;
-
-  --bn-surface: #191b21;
-  --bn-rule: #272a31;
-  --bn-rule-strong: #3a3e47;
-  --bn-muted: #9aa0a8;
-}
-
-/* --- reading -------------------------------------------------------------- */
-
-.md-typeset {
-  font-family: var(--bn-serif);
-  font-size: 0.8rem;
-  line-height: 1.72;
-  letter-spacing: 0;
-}
-
-.md-typeset p,
-.md-typeset li {
-  max-width: 36rem;
-}
-
-.md-typeset a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  text-decoration-color: color-mix(in srgb, var(--md-typeset-a-color) 40%, transparent);
-}
-
-.md-typeset a:hover {
-  text-decoration-color: currentcolor;
-}
-
-/* Ligatures belong in code, where they were designed to be read. */
-.md-typeset code,
-.md-typeset pre,
-.md-typeset kbd {
-  font-feature-settings: "liga" 1, "calt" 1;
-  letter-spacing: -0.01em;
-}
-
-/* --- headings ------------------------------------------------------------- */
-
-.md-typeset h1 {
-  font-family: var(--bn-serif);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--md-default-fg-color);
-  margin-bottom: 0.8rem;
-}
-
-.md-typeset h2 {
-  font-family: var(--bn-serif);
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: -0.015em;
-  padding-top: 0.7rem;
-  margin-top: 2.4rem;
-  border-top: 1px solid var(--bn-rule);
-}
-
-.md-typeset h3 {
-  font-family: var(--bn-serif);
-  font-weight: 600;
-  font-size: 0.88rem;
-  letter-spacing: -0.01em;
-  color: var(--md-default-fg-color);
-}
-
-.md-typeset h4 {
-  font-family: var(--bn-mono);
-  font-weight: 500;
-  font-size: 0.7rem;
-  letter-spacing: 0.02em;
-  color: var(--bn-muted);
-}
-
-/* --- chrome: as little of it as possible ---------------------------------- */
-
-.md-header,
-.md-tabs {
-  box-shadow: none;
-}
-
-.md-header {
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
-  border-bottom: 1px solid var(--bn-rule);
-}
-
-.md-header__title {
-  font-family: var(--bn-serif);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-}
-
-.md-search__input {
-  font-family: var(--bn-serif);
-}
-
-.md-tabs {
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
-  border-bottom: 1px solid var(--bn-rule);
-}
-
-.md-tabs__link {
-  font-family: var(--bn-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.06em;
-  text-transform: lowercase;
-  opacity: 0.6;
-}
-
-.md-tabs__link--active,
-.md-tabs__link:hover {
-  opacity: 1;
-}
-
-.md-nav {
-  font-size: 0.68rem;
-}
-
-.md-nav__title {
-  font-family: var(--bn-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.06em;
-  text-transform: lowercase;
-  color: var(--bn-muted);
-}
-
-.md-nav__link {
-  font-family: var(--bn-serif);
-}
-
-.md-footer,
-.md-footer-meta {
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
-  border-top: 1px solid var(--bn-rule);
-}
-
-.md-footer__link {
-  opacity: 0.82;
-}
-
-.md-footer__title,
-.md-footer__direction {
-  font-family: var(--bn-serif);
-}
-
-.md-copyright {
-  font-family: var(--bn-mono);
-  font-size: 0.58rem;
-  color: var(--bn-muted);
-}
-
-.md-social__link {
-  color: var(--bn-muted);
-  transition: color 120ms;
-}
-
-.md-social__link:hover {
-  color: var(--md-accent-fg-color);
-}
-
-.md-social__link svg {
-  max-height: 0.8rem;
-}
-
-/* --- content blocks ------------------------------------------------------- */
-
-.md-typeset .highlight {
-  border: 1px solid var(--bn-rule);
-  border-radius: var(--bn-radius);
-  overflow: hidden;
-}
-
-.md-typeset .highlight pre {
-  margin: 0;
-}
-
-.md-typeset pre > code {
-  font-size: 0.66rem;
-  line-height: 1.6;
-}
-
-.md-typeset blockquote {
-  border-left: 2px solid var(--bn-rule-strong);
-  color: var(--bn-muted);
-  font-style: italic;
-}
-
-.md-typeset table:not([class]) {
-  border: 1px solid var(--bn-rule);
-  border-radius: var(--bn-radius);
-  font-size: 0.7rem;
-}
-
-.md-typeset table:not([class]) th {
-  font-family: var(--bn-mono);
-  font-weight: 500;
-  font-size: 0.62rem;
-  letter-spacing: 0.03em;
-  background: var(--bn-surface);
-}
-
-.md-typeset .admonition,
-.md-typeset details {
-  border: 1px solid var(--bn-rule);
-  border-left: 2px solid var(--bn-rule-strong);
-  border-radius: var(--bn-radius);
-  box-shadow: none;
-  font-size: 0.74rem;
-}
-
-.md-typeset .admonition-title,
-.md-typeset summary {
-  font-family: var(--bn-mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.03em;
-  background: var(--bn-surface);
-}
-
-.md-typeset img {
-  border: 1px solid var(--bn-rule);
-  border-radius: var(--bn-radius);
-}
-
-/* --- buttons: text with a box around it, not a call to action ------------- */
-
-.md-typeset .md-button {
-  border-radius: var(--bn-radius);
-  border-color: var(--bn-rule-strong);
-  font-family: var(--bn-mono);
-  font-size: 0.64rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  padding: 0.5em 0.9em;
-  text-decoration: none;
-  transition: border-color 120ms, color 120ms;
-}
-
-.md-typeset .md-button:hover {
-  background: transparent;
-  border-color: var(--md-accent-fg-color);
-  color: var(--md-accent-fg-color);
-}
-
-.md-typeset .md-button--primary {
-  background: transparent;
-  border-color: var(--md-default-fg-color);
-  color: var(--md-default-fg-color);
-}
-
-/* --- home: masthead ------------------------------------------------------- */
+/* --- masthead ------------------------------------------------------------- */
 
 .md-typeset .bn-mast {
   border-bottom: 1px solid var(--bn-rule);
@@ -323,30 +24,24 @@
 }
 
 .md-typeset .bn-mast h1 {
-  font-size: 1.9rem;
   max-width: 22rem;
   margin: 0.2rem 0 0.7rem;
 }
 
 .md-typeset .bn-mast p {
-  font-size: 0.85rem;
   color: var(--md-default-fg-color--light);
   max-width: 33rem;
 }
 
 .bn-byline {
   display: block;
-  font-family: var(--bn-mono);
   font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: lowercase;
   color: var(--bn-muted);
 }
 
-/* --- home: the stack, bottom up ------------------------------------------
-   The rail label is the layer the thing actually runs on. Read it downward
-   and you have the build order of the lab.
-   -------------------------------------------------------------------------- */
+/* --- the stack, bottom up ------------------------------------------------- */
 
 .md-typeset .bn-layer {
   display: grid;
@@ -362,7 +57,6 @@
 }
 
 .bn-layer__rail {
-  font-family: var(--bn-mono);
   font-size: 0.6rem;
   letter-spacing: 0.06em;
   text-transform: lowercase;
@@ -372,8 +66,13 @@
   top: 4rem;
 }
 
+/* md_in_html wraps the rail text in a paragraph */
+.md-typeset .bn-layer__rail p {
+  margin: 0;
+  color: inherit;
+}
+
 .md-typeset .bn-layer h2 {
-  font-size: 0.95rem;
   border-top: 0;
   padding-top: 0;
   margin: 0 0 0.35rem;
@@ -395,7 +94,6 @@
   margin: 0;
   padding: 0.22rem 0;
   max-width: 33rem;
-  font-size: 0.76rem;
 }
 
 .md-typeset .bn-layer li a {
@@ -407,9 +105,10 @@
   font-style: normal;
 }
 
+/* --- colophon ------------------------------------------------------------- */
+
 .md-typeset .bn-colophon {
   margin-top: 2.5rem;
-  font-size: 0.72rem;
   color: var(--bn-muted);
 }
 
@@ -417,21 +116,7 @@
   max-width: 33rem;
 }
 
-/* --- a11y ----------------------------------------------------------------- */
-
-:focus-visible {
-  outline: 2px solid var(--md-accent-fg-color);
-  outline-offset: 2px;
-}
-
 /* --- narrow --------------------------------------------------------------- */
-
-@media screen and (max-width: 59.9375em) {
-  .md-nav--primary .md-nav__title {
-    background: var(--md-default-bg-color);
-    color: var(--md-default-fg-color);
-  }
-}
 
 @media screen and (max-width: 44.9375em) {
   .md-typeset .bn-layer {
@@ -443,14 +128,4 @@
     position: static;
     padding-top: 0;
   }
-
-  .md-typeset .bn-mast h1 {
-    font-size: 1.4rem;
-  }
-}
-
-/* md_in_html wraps the rail text in a paragraph */
-.md-typeset .bn-layer__rail p {
-  margin: 0;
-  color: inherit;
 }
