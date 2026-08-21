@@ -1,0 +1,4 @@
+# Zensical build path (see README). Install in its own venv --
+# it needs newer Markdown/Jinja2/pymdown-extensions than the
+# pins in requirements.txt (the MkDocs fallback path).
+zensical==0.0.56
