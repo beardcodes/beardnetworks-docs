@@ -1,4 +1,8 @@
 site_name: beardnetworks Docs
+site_url: https://beardnetworks.cc/
+site_description: >-
+  Working homelab notes: Proxmox, Docker, Kubernetes and self-hosted
+  services, written down as they actually worked.
 repo_url: https://github.com/beardcodes/beardnetworks-docs
 repo_name: beardcodes/beardnetworks-docs
 
