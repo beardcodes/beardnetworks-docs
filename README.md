@@ -1,12 +1,12 @@
 # Beardnetworks Docs
 
-A personal technical knowledge base and blog built with **MkDocs Material**.
+A personal technical knowledge base and blog built with **Zensical** (by the creators of Material for MkDocs).
 
 This repository contains guides, notes, tutorials, homelab documentation, self-hosting projects, security write-ups, and things I learn while building and maintaining my infrastructure.
 
 ## 🌐 Website
 
-The documentation is published as a static website using **MkDocs Material** and deployed automatically from this repository.
+The documentation is published as a static website using **Zensical** and deployed automatically from this repository.
 
 ## 📚 Topics
 
@@ -33,7 +33,8 @@ More guides and notes will be added over time.
 │   ├── home-server/
 │   └── index.md
 ├── mkdocs.yml
-├── requirements.txt
+├── requirements.txt            # MkDocs fallback path
+├── requirements-zensical.txt   # Zensical build path
 └── README.md
 ```
 
@@ -71,13 +72,13 @@ source .venv/bin/activate
 ### 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-zensical.txt
 ```
 
-### 4. Start MkDocs
+### 4. Start the dev server
 
 ```bash
-mkdocs serve
+zensical serve
 ```
 
 Open:
@@ -86,7 +87,19 @@ Open:
 http://127.0.0.1:8000
 ```
 
-MkDocs will automatically reload when Markdown files are changed.
+The server automatically reloads when Markdown files are changed.
+
+### Fallback: MkDocs
+
+Zensical reads the same `mkdocs.yml`, so the original MkDocs toolchain still
+builds this site. Use a **separate** virtual environment for it -- the two
+requirement sets pin conflicting versions of `Markdown`, `Jinja2` and
+`pymdown-extensions`.
+
+```bash
+pip install -r requirements.txt
+mkdocs serve
+```
 
 ## ✍️ Adding Content
 
@@ -117,7 +130,7 @@ nav:
 Generate the static website with:
 
 ```bash
-mkdocs build
+zensical build
 ```
 
 The generated website will be placed inside:
@@ -140,7 +153,8 @@ The website can be deployed automatically using services such as:
 The deployment service only needs to run:
 
 ```bash
-mkdocs build
+pip install -r requirements-zensical.txt
+zensical build
 ```
 
 and publish the generated:
@@ -153,8 +167,8 @@ directory.
 
 ## 🛠 Built With
 
-* [MkDocs](https://www.mkdocs.org/)
-* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* [Zensical](https://zensical.org/)
+* [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) (fallback)
 * Markdown
 * GitHub
 
