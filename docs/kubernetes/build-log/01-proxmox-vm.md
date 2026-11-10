@@ -112,4 +112,4 @@ K3s itself was not the hard part. The decisions around it mattered more: where t
 
 A single-node K3s lab is a good place to learn those boundaries. It isn't a substitute for proper redundancy and backups, and 6 GB of RAM leaves less headroom than you'd think once monitoring is installed.
 
-*Next: Part 2 — Bootstrapping Flux CD and deploying my first app from GitHub.*
+*Next: [Part 2 — Bootstrapping Flux CD and deploying my first app from GitHub](02-flux-gitops.md).*
