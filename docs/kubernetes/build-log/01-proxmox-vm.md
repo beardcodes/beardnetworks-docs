@@ -6,7 +6,7 @@ I already run a lot of Docker containers across my homelab. Docker Compose still
 
 The goal was small: build one K3s node on Proxmox, manage it from my Windows desktop, and add services one at a time. I wasn't trying to replace every existing Docker host in a weekend.
 
-This series documents what I actually built, including the bits that failed and how I fixed them. The live manifests are in [beardcodes/k3s-homelab](https://github.com/beardcodes/k3s-homelab).
+This series documents what I actually built, including the bits that failed and how I fixed them. The source for these docs is in [beardcodes/beardnetworks-docs](https://github.com/beardcodes/beardnetworks-docs).
 
 ## The starting point
 
@@ -98,7 +98,7 @@ I also kept my existing Docker services running. Kubernetes would be a parallel 
 
 ## 5. Where the build went next
 
-Once `kubectl` worked from my desktop, I bootstrapped Flux CD against a dedicated GitHub repository: [beardcodes/k3s-homelab](https://github.com/beardcodes/k3s-homelab).
+Once `kubectl` worked from my desktop, I bootstrapped Flux CD against a dedicated private GitHub repository, `beardcodes/k3s-homelab`.
 
 That introduced the part I actually wanted to learn: changing YAML in Git, pushing a commit, and having the cluster reconcile itself instead of manually applying every application.
 
