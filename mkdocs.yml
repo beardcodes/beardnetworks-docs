@@ -135,6 +135,8 @@ nav:
       - Firefly III: docker-containers/firefly-iii.md
   - Kubernetes:
     - Set up K3s: kubernetes/k3s-installation.md
+    - K3s Build Log:
+      - "Part 1 - The Proxmox VM": kubernetes/build-log/01-proxmox-vm.md
     - Helm: kubernetes/helm-install.md
     - cert-manager: kubernetes/cert-manager.md
 
